@@ -50,7 +50,7 @@ class Solver {
   int negamax(const Position &P, int alpha, int beta);
 
  public:
-  static const int INVALID_MOVE = -1000;
+  static constexpr int INVALID_MOVE = -1000;
 
   // Returns the score of a position
   int solve(const Position &P, bool weak = false);

@@ -3,7 +3,11 @@ cmake_minimum_required(VERSION 3.10)
 # set the project name and version
 project(Example VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+elseif (MSVC)
+    set(CMAKE_CXX_FLAGS_RELEASE "/O2")
+endif ()
 
 # enable MSVC_RUNTIME_LIBRARY target property
 # see https://cmake.org/cmake/help/latest/policy/CMP0091.html
